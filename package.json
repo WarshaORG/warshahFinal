@@ -3,7 +3,7 @@
   "version": "19.2.17",
   "description": "Build out the front end of a MEAN stack app",
   "engines": {
-    "node": "latest"
+    "node": ">= 7.0.0"
   },
   "scripts": {
     "start": "nodemon server/server.js"

@@ -28,6 +28,7 @@ module.exports = {
 			if(err){
 				res.status(500).send('err');
 			}else{
+				console.log(allTradWorker)
 				res.status(200).send(allTradWorker);
 			}
 		});

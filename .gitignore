@@ -16,6 +16,7 @@ Icon
 .Trashes
 node_modules/
 client/bower_components/
+bower_components/
 db/
 client/lib
 compiled/

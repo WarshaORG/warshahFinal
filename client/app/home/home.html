@@ -1,3 +1,7 @@
+
+
+
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -43,37 +47,32 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a> -->
-    </div><!-- /.carousel -->
-
-    <div class="col-md-12" id="main" >
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="image/service1.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-              <p>Cras justo odio, dapibus ac facilisis in.</p>
-              <p><a href="#" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="image/service2.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-              <p>Cras justo odio, dapibus ac facilisis in.</p>
-              <p><a href="#" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="image/service3.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-              <p>Cras justo odio, dapibus ac facilisis in.</p>
-              <p><a href="#" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-            </div>
-          </div>
-        </div>
     </div>
+
+    <!-- /.carousel -->
+
+  <div class="col-md-12" id="main" ng-controller="TradeworkerController">
+    <div class="col-sm-6 col-md-4" ng-repeat="tradeworker in trade">
+      <div class="thumbnail">
+        <img src="image/service1.jpg" alt="...">
+          <div class="caption">
+            <h3>{{tradeworker.username}}</h3>
+              <p>{{tradeworker.service}}</p>
+                <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog($event)">
+               details
+                 </md-button>
+          </div>
+          <div style="visibility: hidden">
+            <div class="md-dialog-container" id="myDialog">
+              <md-dialog layout-padding ng-model='tradeworker.trade'>
+                <h3>more details</h3>
+                <p ng-model='tradeworker.phone'> Mobile number : {{tradeworker.phone}} </p>
+                <p ng-model='tradeworker.email'> email : {{tradeworker.email}} </p>
+                <p ng-model='tradeworker.experiance'> experiance: {{tradeworker.experiance}} </p>
+                <p ng-model='tradeworker.place'> place : {{tradeworker.place}} </p>
+              </md-dialog>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

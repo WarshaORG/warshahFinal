@@ -3,7 +3,10 @@
 	'myapp.TradeworkerController',
 	'myapp.user',
 	'myapp.home',
-	'ngRoute'
+	'ngRoute',
+	'ngMaterial'
+
+
 ])
 
 .config(function($routeProvider, $httpProvider){

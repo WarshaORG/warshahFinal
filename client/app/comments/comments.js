@@ -1,13 +1,14 @@
- angular.module('myapp.TradeworkerController',['ngMaterial'])
 
-.controller('TradeworkerController',function ($scope,$http,$location, Tradeworker ,$mdDialog ,$mdMedia){
-	
-  $scope.tradeworkers = {}
-  $scope.addTradeworker = function () {
-    Tradeworker.insert($scope.tradeworkers)
+
+angular.module('myapp.comments', [])
+
+.controller('commentsController', function($scope, $mdDialog , Comments  , $mdMedia) {
+	  $scope.comments = {}
+  $scope.addComment= function () {
+    Comments.insert($scope.comments)
       .then(function () {
         $scope.status = 200 ;
-       initializeTradeworker()
+       initializeComments()
       })
       .catch(function (error) {
         console.log(error);
@@ -16,23 +17,27 @@
 
 
 
-  $scope.trade = {};
-  var initializeTradeworker = function () {
-    Tradeworker.getAll()
+
+  $scope.com = {};
+  var initializeComments = function () {
+    Comments.getAll($scope.com._id)
       .then(function (data) {
-        $scope.trade = data;
+      	  	console.log(data) 
+        $scope.com = data;
       })
   };
 
-  initializeTradeworker();
+  // initializeTradeworker();
 
-  $scope.status = '  ';
+
+
+$scope.status = '  ';
   $scope.customFullscreen = false;
 
   $scope.showPrerenderedDialog = function(ev ,tradeworker) {
     $scope.newData = tradeworker ;
     $mdDialog.show({
-      contentElement: '#myDialog',
+      contentElement: '#comments',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: true
@@ -51,5 +56,7 @@
     $scope.answer = function(answer) {
       $mdDialog.hide(answer);
     };
-  }
-}); 
+  } 
+
+
+});

@@ -1,32 +1,39 @@
  angular.module('myapp',[
- 	'myapp.userController',
+ 	'myapp.services',
 	'myapp.TradeworkerController',
+	'myapp.user',
+	'ngRoute',
+	'ngMaterial',
+	'myapp.comments'
 
-	'ngRoute']);
 
-.config(function($routeProvider){
-	$routeProvider.when('/adduser',{
-		templateUrl:'../user/signup.html',                   
+])
+
+.config(function($routeProvider, $httpProvider){
+	// console.log('in appppp')
+	$routeProvider
+	.when('/',{
+		templateUrl:'app/user/login.html',
 		controller:'userController'                  
 	})
+	.when('/home',{
+		templateUrl:'app/home/home.html',
+		controller:'TradeworkerController'                  
+	})
 	.when('/signin',{
-		templateUrl:'../user/signin.html',
+		templateUrl:'/app/user/login.html',
 		controller:'userController'                  
 	})
 	.when('/signup',{
-		templateUrl:'../user/signup.html',
+		templateUrl:'app/user/signup.html',
 		controller:'userController'                  
 	})
-	.when('/addTradeworker',{
-		templateUrl:'./tradworker/tradworker.html',
-		controller:'TradeworkerController'                 
-	})
-	.when('/getTradeworker',{
-		templateUrl:'./tradworker/tradworker.html',
+
+	.when('/tradeworker',{
+		templateUrl:'app/tradeworker/tradeworker.html',
 		controller:'TradeworkerController'                 
 	})
 	.otherwise({
 		redirectTo:'/signin'
-	})
-	
+	})	
 })

@@ -1,4 +1,4 @@
-angular.module('warshah.services', [])
+angular.module('myapp.services', [])
 .factory('User', function ($http, $location, $window) {
  
   var signin = function (user) {
@@ -37,15 +37,16 @@ angular.module('warshah.services', [])
 })
 .factory('Tradeworker',function ($http, $location) {
 
-  var insert = function (Tradeworker) {
+  var insert = function (tradeworker) {
+    console.log(tradeworker)
     return $http({
       method : 'POST',
       url : '/api/insert',
-      data : Tradeworker
+      data : tradeworker
     }).then(function (resp) {
       return resp.data
     })
-  },
+  }
 
   var getAll = function () {
     return $http({
@@ -72,19 +73,20 @@ angular.module('warshah.services', [])
     }).then(function (resp) {
       return resp.data
     })
-  },
+  }
 
-  var getAll = function () {
+  var getAll = function (id) {
     return $http({
       method : 'GET',
-      url : '/api/allC'
+      url : '/api/allC/'+id._id
     }).then(function (resp) {
       return resp.data
     })
   }
 
   return {
-    insert : insertC,
-    getAll : allC
+    insert : insert,
+    getAll : getAll
   }
 })
+

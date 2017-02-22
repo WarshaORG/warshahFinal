@@ -3,13 +3,21 @@
 {
 username: "Lolo",
 
+<<<<<<< HEAD
+password: "123"
+=======
 password: "123",
 salt: "aaaaaaaaaaaa"
+>>>>>>> 08e8f47e3d131c592b830c6b9eda5adcf72b206f
 },
 {
 username: "mimi",
 
+<<<<<<< HEAD
+password: "1234"
+=======
 password: "1234",
 salt: "bbbbbbbbbbbb"
+>>>>>>> 08e8f47e3d131c592b830c6b9eda5adcf72b206f
 }
 ]

@@ -38,6 +38,7 @@ angular.module('myapp.services', [])
 .factory('Tradeworker',function ($http, $location) {
 
   var insert = function (tradeworker) {
+    console.log(tradeworker)
     return $http({
       method : 'POST',
       url : '/api/insert',
@@ -74,17 +75,18 @@ angular.module('myapp.services', [])
     })
   }
 
-  var getAll = function () {
+  var getAll = function (id) {
     return $http({
       method : 'GET',
-      url : '/api/allC'
+      url : '/api/allC/'+id._id
     }).then(function (resp) {
       return resp.data
     })
   }
 
   return {
-    insert : insertC,
-    getAll : allC
+    insert : insert,
+    getAll : getAll
   }
 })
+

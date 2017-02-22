@@ -2,15 +2,15 @@
  	'myapp.services',
 	'myapp.TradeworkerController',
 	'myapp.user',
-	'myapp.home',
 	'ngRoute',
-	'ngMaterial'
+	'ngMaterial',
+	'myapp.comments'
 
 
 ])
 
 .config(function($routeProvider, $httpProvider){
-	console.log('in appppp')
+	// console.log('in appppp')
 	$routeProvider
 	.when('/',{
 		templateUrl:'app/user/login.html',
@@ -18,7 +18,7 @@
 	})
 	.when('/home',{
 		templateUrl:'app/home/home.html',
-		controller:'userController'                  
+		controller:'TradeworkerController'                  
 	})
 	.when('/signin',{
 		templateUrl:'/app/user/login.html',
@@ -28,20 +28,12 @@
 		templateUrl:'app/user/signup.html',
 		controller:'userController'                  
 	})
-	.when('/addTradeworker',{
-		templateUrl:'app/tradworker/tradworker.html',
-		controller:'TradeworkerController'                 
-	})
-	.when('/getTradeworker',{
-		templateUrl:'app/tradworker/tradworker.html',
+
+	.when('/tradeworker',{
+		templateUrl:'app/tradeworker/tradeworker.html',
 		controller:'TradeworkerController'                 
 	})
 	.otherwise({
 		redirectTo:'/signin'
-	})
-	
+	})	
 })
-
-// .controller('checkCtrl'function (argument) {
-// 	// body...
-// })

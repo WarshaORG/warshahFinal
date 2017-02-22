@@ -14,7 +14,7 @@ module.exports = function (app, express) {
 	 	app.get('/api/all',TradeWorkerController.getAllTradeWorker);
 
 	 	app.post('/api/insertC',CommentController.insert);
-		app.get('/api/allC/:id',CommentController.getAllCommentsByTWID);
+		app.post('/api/allC/:id',CommentController.getAllCommentsByTWID);
 };
 
 

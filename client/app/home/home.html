@@ -10,8 +10,7 @@
                 <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog(commentValue,tradeworker)">
                details
                  </md-button>
-
-                    <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
+                    <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker._id)" class="md-primary md-raised" > show or write comments </md-button >
           </div>
 
           <div style="visibility: hidden">
@@ -38,13 +37,14 @@
               <input type="text" name="comment" id='Text1' ng-model='commentValue'>
 
 
-             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue,id)" class="md-primary md-raised" > comments </md-button >
+             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)"  class="md-primary md-raised" > Write a comment </md-button >
               </md-dialog>
             </div>
           </div>
       </div>
 
   </div>
+</div>
 
 
    

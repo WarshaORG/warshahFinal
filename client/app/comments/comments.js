@@ -2,15 +2,13 @@
 
 angular.module('myapp.comments', [])
 
-.controller('commentsController', function($scope, $mdDialog , Comments  , $mdMedia) {
-	  $scope.comments = {}
+.controller('commentsController', function($scope, $mdDialog , Comments  , $mdMedia, $window) {
   $scope.com = {};
-  $scope.comment = {}
-  $scope.addComment= function (commentValue,id) {
-    Comments.insert($scope.comments)
+  $scope.comment = ''
+  $scope.addComment= function (commentValue) {
+     $scope.comment = commentValue
+    Comments.insert($scope.comment)
       .then(function () {
-        $scope.comment = commentValue
-        console.log($scope.comment)
        initializeComments()
       })
       .catch(function (error) {
@@ -22,17 +20,19 @@ angular.module('myapp.comments', [])
 
 
   var initializeComments = function () {
-    Comments.getAll($scope.com._id)
+    Comments.getAll(window.localStorage._id)
       .then(function (data) {
-          console.log(data)
+    console.log(window.localStorage._id)
+        console.log(data + " test")
         $scope.com = data;
       })
   };
 $scope.status = '  ';
   $scope.customFullscreen = false;
 
-  $scope.showPrerenderedDialog = function(ev ,tradeworker) {
-    $scope.newData = tradeworker ;
+  $scope.showPrerenderedDialog = function(ev ,tradeworkerId) {
+    $scope.newComment = tradeworkerId ;
+    console.log($scope.newComment + " comments")
     $mdDialog.show({
       contentElement: '#comments',
       parent: angular.element(document.body),

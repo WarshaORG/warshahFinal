@@ -5,7 +5,7 @@ var TradeWorkerSchema = new mongoose.Schema({
 	username:{
 		type     : String, 
 		required : true,
-		unique   : true
+		unique : true
 	}, 
 	email:{
 		type     : String, 
@@ -25,6 +25,9 @@ var TradeWorkerSchema = new mongoose.Schema({
 	},
 	experiance:{
 		type     : String
+	},
+	Feed : {
+		type : Array
 	}
 
 }); 

@@ -18,8 +18,10 @@ module.exports = function (app, express) {
 	 	app.post('/api/insertC',CommentController.insert);
 		app.post('/api/allC/:id',CommentController.getAllCommentsByTWID);
 
+
 		app.post('/api/insertR',RatingController.insert);
 		app.post('/api/allR/:id',RatingController.getAllRatingsByTWID);
+
 
 
 };

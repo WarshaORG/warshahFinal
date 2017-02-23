@@ -1,13 +1,17 @@
  angular.module('myapp.TradeworkerController',['ngMaterial'])
 
-.controller('TradeworkerController',function ($scope,$http,$location, Tradeworker ,$mdDialog ,$mdMedia){
+.controller('TradeworkerController',function ($scope,$http,$location, Tradeworker ,$mdDialog ,$mdMedia, $window){
 	
   $scope.tradeworkers = {}
   $scope.addTradeworker = function () {
     Tradeworker.insert($scope.tradeworkers)
       .then(function () {
         $scope.status = 200 ;
+
        initializeTradeworker()
+          $location.path('/');
+
+
       })
       .catch(function (error) {
         console.log(error);
@@ -31,6 +35,7 @@
 
   $scope.showPrerenderedDialog = function(ev ,tradeworker) {
     $scope.newData = tradeworker ;
+     $window.localStorage._id = $scope.newData._id
     $mdDialog.show({
       contentElement: '#myDialog',
       parent: angular.element(document.body),

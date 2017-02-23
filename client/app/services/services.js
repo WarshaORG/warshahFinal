@@ -38,7 +38,6 @@ angular.module('myapp.services', [])
 .factory('Tradeworker',function ($http, $location) {
 
   var insert = function (tradeworker) {
-    console.log(tradeworker)
     return $http({
       method : 'POST',
       url : '/api/insert',
@@ -64,9 +63,13 @@ angular.module('myapp.services', [])
   }
 })
 
-.factory('Comments',function ($http, $location) {
-
+.factory('Comments',function ($http, $location,$window) {
   var insert = function (Comment) {
+    console.log(Comment)
+  // var newComment = {text:Comment,
+  //   postedBy:window.localStorage.userId,
+  //   tradeworkerId:window.localStorage._id}
+  //   console.log(newComment.text)
     return $http({
       method : 'POST',
       url : '/api/insertC',
@@ -79,7 +82,7 @@ angular.module('myapp.services', [])
   var getAll = function (id) {
     return $http({
       method : 'GET',
-      url : '/api/allC/'+id._id
+      url : '/api/allC'
     }).then(function (resp) {
       return resp.data
     })

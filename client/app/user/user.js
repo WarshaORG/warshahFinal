@@ -7,8 +7,10 @@
 	$scope.user = {};
 	  $scope.signin = function () {
 	    User.signin($scope.user)
-	      .then(function (token) {
-	        $window.localStorage.setItem('com.shortly', token);
+	      .then(function (obj) {
+            $window.localStorage.userId = obj.user._id
+            console.log(obj)
+	        $window.localStorage.setItem('com.shortly', obj.token);
 	        $location.path('/home');
 	      })
 	      .catch(function (error) {

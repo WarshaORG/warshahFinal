@@ -20,32 +20,48 @@
           <div>
             <h3>{{tradeworker.username}}</h3>
               <p>{{tradeworker.service}}</p>
-                <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog($event,tradeworker)">
+                <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog(commentValue,tradeworker)">
                details
                  </md-button>
+
                   <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
+
+
+                    <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
+
           </div>
 
           <div style="visibility: hidden">
             <div class="md-dialog-container" id="myDialog" >
               <md-dialog layout-padding >
-                <h3>more details</h3>
+                <h3>More details</h3>
                 <p> Mobile number : {{newData.phone}} </p>
-                <p> email : {{newData.email}} </p>
-                <p> experiance: {{newData.experiance}} </p>
-                <p> place : {{newData.place}} </p>
+                <p> Email : {{newData.email}} </p>
+                <p> Experiance: {{newData.experiance}} </p>
+                <p> Place : {{newData.place}} </p>
               </md-dialog>
             </div>
           </div>
-  
+
 
 
          <div style="visibility: hidden" ng-contoller = 'commentsController' >
             <div class="md-dialog-container" id="comments" >
               <md-dialog layout-padding >
+
               <h3> Comments </h3>
               <input type="text" name="comment" ng-model='com.comment'>
              <md-button  ng-controller='commentsController' ng-click="addComment()" class="md-primary md-raised" > comments </md-button >
+
+
+              <div> hello my name is whatevr </div>
+
+              <h3> </h3>
+              <input type="text" name="comment" id='Text1' ng-model='commentValue'>
+
+
+             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue,id)" class="md-primary md-raised" > comments </md-button >
+
               </md-dialog>
             </div>
           </div>

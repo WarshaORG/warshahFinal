@@ -4,14 +4,14 @@ module.exports = {
 	insert : function (req, res) {
 		// TradeWorker.findOne({tradeworker : req.body.tradeworker})
  	// 		.exec(function (error, user) {
-			console.log('from server',req.body)
+			// console.log('from server',req.body)
 		var newTradeWorker = new TradeWorker ({
 			username : req.body.username,
         	email:req.body.email,
         	place : req.body.place,
         	service : req.body.service,
         	phone : req.body.phone,
-        	experiance : req.body.experiance,
+        	experiance : req.body.experiance
 		});
 		
 		newTradeWorker.save(function(err, newTradeWorker){
@@ -27,7 +27,6 @@ module.exports = {
 			if(err){
 				res.status(500).send('err');
 			}else{
-				console.log(allTradWorker)
 				res.status(200).send(allTradWorker);
 			}
 		});

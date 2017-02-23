@@ -13,13 +13,10 @@ module.exports = function (app, express) {
 
 	// //////////////////////////TradeWorker///////////////////////////////
 	 	app.post('/api/insert',TradeWorkerController.insert);
-	 	console.log(TradeWorkerController.getAllTradeWorker)
 	 	app.get('/api/all',TradeWorkerController.getAllTradeWorker);
 
 	 	app.post('/api/insertC',CommentController.insert);
 		app.post('/api/allC/:id',CommentController.getAllCommentsByTWID);
-		// app.post('/api/allC/:id',CommentController.getAllCommentsByTWID);
-
 };
 
 

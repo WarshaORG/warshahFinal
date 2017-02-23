@@ -4,10 +4,13 @@ angular.module('myapp.comments', [])
 
 .controller('commentsController', function($scope, $mdDialog , Comments  , $mdMedia) {
 	  $scope.comments = {}
-  $scope.addComment= function () {
+  $scope.com = {};
+  $scope.comment = {}
+  $scope.addComment= function (commentValue,id) {
     Comments.insert($scope.comments)
       .then(function () {
-        $scope.status = 200 ;
+        $scope.comment = commentValue
+        console.log($scope.comment)
        initializeComments()
       })
       .catch(function (error) {
@@ -18,19 +21,13 @@ angular.module('myapp.comments', [])
 
 
 
-  $scope.com = {};
   var initializeComments = function () {
     Comments.getAll($scope.com._id)
       .then(function (data) {
-      	  	console.log(data) 
+          console.log(data)
         $scope.com = data;
       })
   };
-
-  // initializeTradeworker();
-
-
-
 $scope.status = '  ';
   $scope.customFullscreen = false;
 

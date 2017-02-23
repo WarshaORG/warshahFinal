@@ -1,15 +1,29 @@
 
-
   <div class="col-md-12" id="main" ng-controller="TradeworkerController">
     <div class="col-sm-6 col-md-4" ng-repeat="tradeworker in trade">
       <div class="thumbnail" >
         <img src="image/service1.jpg" alt="...">
-          <div class="caption">
+         <div  style="padding: 20px" >
+    <!-- <div layout="column" ng-controller="ratingController">
+      <jk-rating-stars ng-click='onItemRating($event,id)' rating="res" ></jk-rating-stars>
+      <div style="width: 100px">{{res}} Stars</div>
+    </div> -->
+
+    <div ng-controller="ratingController as m">
+  <h1></h1>
+  <h2>Current LocalStorage value is = <em></em></h2>
+  <jk-rating-stars ng-click='m.update(m.value)' rating="res" ng-model="m.value" ></jk-rating-stars>
+ <!--  <input type="text" ng-model="m.value">
+  <input type="button" value="update" ng-click="m.update(m.value)"> -->
+</div>
+  </div>
+          <div>
             <h3>{{tradeworker.username}}</h3>
               <p>{{tradeworker.service}}</p>
                 <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog($event,tradeworker)">
                details
                  </md-button>
+                  <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
           </div>
 
           <div style="visibility: hidden">
@@ -23,22 +37,20 @@
               </md-dialog>
             </div>
           </div>
-   <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
+  
 
 
          <div style="visibility: hidden" ng-contoller = 'commentsController' >
             <div class="md-dialog-container" id="comments" >
               <md-dialog layout-padding >
-
-              <h3> </h3>
+              <h3> Comments </h3>
               <input type="text" name="comment" ng-model='com.comment'>
-
-
              <md-button  ng-controller='commentsController' ng-click="addComment()" class="md-primary md-raised" > comments </md-button >
               </md-dialog>
             </div>
           </div>
       </div>
+
 
   </div>
 

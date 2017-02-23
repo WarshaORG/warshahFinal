@@ -2,7 +2,7 @@ var Comment = require ('./CommentModel');
 
 module.exports = {
 	insert : function (req, res) {
-		Comment.findOne({username : req.body.username})
+		Comment.findOne({postedBy:req.body.postedby})
 			.exec(function (error, user) {
 				var newComment = new Comment ({
 					text: req.body.text,

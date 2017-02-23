@@ -1,7 +1,7 @@
 var UserController = require('../DataBase/User/UserController.js');
  var TradeWorkerController = require('../DataBase/TradeWorker/TradeWorkerController.js');
  var CommentController = require('../DataBase/Comments/CommentController.js')
-
+ var RatingController = require('../DataBase/Rating/RatingController.js')
 
 module.exports = function (app, express) {
 		
@@ -13,13 +13,13 @@ module.exports = function (app, express) {
 
 	// //////////////////////////TradeWorker///////////////////////////////
 	 	app.post('/api/insert',TradeWorkerController.insert);
-	 	console.log(TradeWorkerController.getAllTradeWorker)
 	 	app.get('/api/all',TradeWorkerController.getAllTradeWorker);
 
 	 	app.post('/api/insertC',CommentController.insert);
 		app.post('/api/allC/:id',CommentController.getAllCommentsByTWID);
 
-		// app.post('/api/allC/:id',CommentController.getAllCommentsByTWID);
+		app.post('/api/insertR',RatingController.insert);
+		app.post('/api/allR/:id',RatingController.getAllRatingsByTWID);
 
 
 };

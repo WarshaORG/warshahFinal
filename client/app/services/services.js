@@ -55,6 +55,7 @@ angular.module('myapp.services', [])
     }).then(function (resp) {
       return resp.data
     })
+     $location.path('/home');
   }
 
   return {
@@ -89,4 +90,9 @@ angular.module('myapp.services', [])
     getAll : getAll
   }
 })
+
+
+
+
+
 

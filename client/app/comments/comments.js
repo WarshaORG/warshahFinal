@@ -22,7 +22,7 @@ angular.module('myapp.comments', [])
   var initializeComments = function () {
     Comments.getAll(window.localStorage._id)
       .then(function (data) {
-    console.log(window.localStorage._id)
+    console.log(data + " data")
         console.log(data + " test")
         $scope.com = data;
       })
@@ -32,6 +32,7 @@ $scope.status = '  ';
 
   $scope.showPrerenderedDialog = function(ev ,tradeworkerId) {
     $scope.newComment = tradeworkerId ;
+     $window.localStorage._id = $scope.newComment
     console.log($scope.newComment + " comments")
     $mdDialog.show({
       contentElement: '#comments',

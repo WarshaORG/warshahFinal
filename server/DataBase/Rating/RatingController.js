@@ -3,7 +3,7 @@ module.exports = {
 	insert : function (req, res) {
 		// console.log("----", req.body);
 		
-		Rating.findOne({postedBy:req.body.postedby})
+		Rating.findOne({tradeWorkerId:req.body.tradeWorkerId})
 			.exec(function (error, user) {
 				var newRating = new Rating ({
 		        	postedBy:req.body.postedby,

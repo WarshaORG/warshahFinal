@@ -63,26 +63,25 @@ angular.module('myapp.services', [])
   }
 })
 
-.factory('Comments',function ($http, $location,$window) {
+.factory('Comments',function ($http, $location, $window) {
   var insert = function (Comment) {
-    console.log(Comment)
-  // var newComment = {text:Comment,
-  //   postedBy:window.localStorage.userId,
-  //   tradeworkerId:window.localStorage._id}
-  //   console.log(newComment.text)
+  var newComment = {text:Comment,
+    postedBy:window.localStorage.userId,
+    tradeworkerId:window.localStorage._id}
     return $http({
       method : 'POST',
       url : '/api/insertC',
-      data : Comment
+      data : newComment
     }).then(function (resp) {
       return resp.data
     })
   }
 
   var getAll = function (id) {
+    // var id = window.localStorage._id
     return $http({
-      method : 'GET',
-      url : '/api/allC'
+      method : 'POST',
+      url : '/api/allC/' + id
     }).then(function (resp) {
       return resp.data
     })

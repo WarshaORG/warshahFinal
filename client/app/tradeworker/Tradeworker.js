@@ -9,7 +9,7 @@
         $scope.status = 200 ;
 
        initializeTradeworker()
-          $location.path('/');
+          $location.path('/home');
 
 
       })
@@ -36,7 +36,8 @@
   $scope.showPrerenderedDialog = function(ev ,tradeworker) {
     $scope.newData = tradeworker ;
      $window.localStorage._id = $scope.newData._id
-    
+
+     console.log($scope.newData)
     $mdDialog.show({
       contentElement: '#myDialog',
       parent: angular.element(document.body),

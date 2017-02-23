@@ -7,11 +7,12 @@
 	'ngMaterial',
 	'myapp.comments',
 	'jkAngularRatingStars'
+
 ])
 
 .config(function($routeProvider, $httpProvider){
 	// console.log('in appppp')
-	
+
 	$routeProvider
 	.when('/',{
 		templateUrl:'app/user/login.html',

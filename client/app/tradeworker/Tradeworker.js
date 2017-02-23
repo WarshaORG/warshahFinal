@@ -36,6 +36,7 @@
   $scope.showPrerenderedDialog = function(ev ,tradeworker) {
     $scope.newData = tradeworker ;
      $window.localStorage._id = $scope.newData._id
+    
     $mdDialog.show({
       contentElement: '#myDialog',
       parent: angular.element(document.body),

@@ -11,11 +11,12 @@
 
     <div ng-controller="ratingController">
   <h1></h1>
+Average Rating:
+<jk-rating-stars max-rating="5" rating="ctrl.avg" read-only="ctrl.readOnly">
+</jk-rating-stars> 
+Enter your rating below:
   <jk-rating-stars max-rating="5" rating="ctrl.rating"  on-rating="ctrl.onRating(rating)" >
 </jk-rating-stars>
-Average Rating:
-<jk-rating-stars max-rating="5" rating="ctrl.avg()" read-only="ctrl.readOnly">
-</jk-rating-stars> 
 
   <!-- <jk-rating-stars ng-click='m.update(m.value)' rating="res" ng-model="m.value" ></jk-rating-stars> -->
  <!--  <input type="text" ng-model="m.value">

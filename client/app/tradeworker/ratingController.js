@@ -8,7 +8,9 @@ angular.module('myapp.ratingController',["jkAngularRatingStars"])
   $scope.ctrl.readOnly = true;
   //so scope.avg is what is being displayed as a rating in home.html 
   //I tried calling initializeRating for scope.avg but it gave me an error.
-  $scope.avg = 0 ;
+  $scope.ctrl.avg = initializeRating
+
+  console.log($scope.ctrl.avg)
 
   $scope.ctrl.onRating= function (rateValue) {
 
@@ -17,7 +19,6 @@ angular.module('myapp.ratingController',["jkAngularRatingStars"])
    
       .then(function () {
 		initializeRating() 
-	
   })
       .catch(function (error) {
         console.log(error);
@@ -27,17 +28,21 @@ angular.module('myapp.ratingController',["jkAngularRatingStars"])
 
 
 
+  var total = 0
   var initializeRating = function () {
 
      
-  	var ratings = 0;
     Rating.getAll(window.localStorage._id)
       .then(function (data) {
+      	total = 0;
+      	$scope.ctrl.avg =0;
   		for (var i = 0; i < data.length; i++) {
-  			ratings+= data[i].value[0]
+  			total += data[i].value[0]
   		}
       	
-      	return Math.floor(ratings/data.length)
+      	$scope.ctrl.avg = Math.floor(total/data.length)
+      	console.log($scope.ctrl.avg)
+      	return $scope.ctrl.avg
       })
       .catch(function (error) {
         console.error(error);

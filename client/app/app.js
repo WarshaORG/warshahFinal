@@ -11,7 +11,7 @@
 ])
 
 .config(function($routeProvider, $httpProvider){
-	// console.log('in appppp')
+	
 
 	$routeProvider
 	.when('/',{

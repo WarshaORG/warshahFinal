@@ -32,7 +32,7 @@
 	})
 
 	.when('/tradeworker',{
-		templateUrl:'tradeworker/tradeworker.html',
+		templateUrl:'app/tradeworker/tradeworker.html',
 		controller:'TradeworkerController'                 
 	})
 	.otherwise({

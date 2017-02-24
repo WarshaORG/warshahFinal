@@ -11,9 +11,12 @@
 
     <div ng-controller="ratingController">
   <h1></h1>
-  <h2>Current LocalStorage value is = <em></em></h2>
-  <jk-rating-stars max-rating="5" rating="ctrl.rating" read-only="ctrl.readOnly" on-rating="ctrl.onRating(rating)" >
+  <jk-rating-stars max-rating="5" rating="ctrl.rating"  on-rating="ctrl.onRating(rating)" >
 </jk-rating-stars>
+
+<jk-rating-stars max-rating="5" rating="avg" read-only="ctrl.readOnly">
+</jk-rating-stars> 
+
   <!-- <jk-rating-stars ng-click='m.update(m.value)' rating="res" ng-model="m.value" ></jk-rating-stars> -->
  <!--  <input type="text" ng-model="m.value">
   <input type="button" value="update" ng-click="m.update(m.value)"> -->
@@ -25,12 +28,6 @@
                 <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog(commentValue,tradeworker)">
                details
                  </md-button>
-
-
-                  <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
-
-
-                    <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker)" class="md-primary md-raised" > comments </md-button >
 
 
                     <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker._id)" class="md-primary md-raised" > show or write comments </md-button >
@@ -55,23 +52,18 @@
             <div class="md-dialog-container" id="comments" >
               <md-dialog layout-padding >
 
-              <h3> Comments </h3>
-              <input type="text" name="comment" ng-model='com.comment'>
-             <md-button  ng-controller='commentsController' ng-click="addComment()" class="md-primary md-raised" > comments </md-button >
-
-
               <div> hello my name is whatevr </div>
 
               <h3> </h3>
               <input type="text" name="comment" id='Text1' ng-model='commentValue'>
 
 
-<<<<<<< HEAD
-             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue,id)" class="md-primary md-raised" > comments </md-button >
 
-=======
-             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)"  class="md-primary md-raised" > Write a comment </md-button >
->>>>>>> 315819c1eac1efd56f95e83c2c50b71c25d78910
+             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)" class="md-primary md-raised" > write a comment </md-button >
+
+
+            
+
               </md-dialog>
             </div>
           </div>

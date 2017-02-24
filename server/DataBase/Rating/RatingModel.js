@@ -12,7 +12,7 @@ var RatingSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    tradeWorkerId: {
+    tradeworkerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'TradeWorker'
     }

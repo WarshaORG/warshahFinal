@@ -97,32 +97,33 @@ angular.module('myapp.services', [])
 
 // rating factory 
 .factory('Rating',function ($http, $location,$window) {
-  var insert = function (rate) {
-    // console.log(window.localStorage.userId)
+  var insert = function (rate, $window) {
+   //  console.log(window.localStorage._id)
+   // console.log(rate, "from insert factory")
   var newRate = {value:rate,
     postedBy:window.localStorage.userId,
     tradeworkerId:window.localStorage._id}
-   
     return $http({
       method : 'POST',
       url : '/api/insertR',
       data : newRate
-      console.log(newRate)
+     
     }).then(function (resp) {
       return resp.data
     })
   }
 
   var getAll = function (id) {
+    id= window.localStorage._id
     return $http({
       method : 'POST',
-      url : '/api/allR' + window.localStorage._id
+      url : '/api/allR/'+id,
     }).then(function (resp) {
       return resp.data
+      
     })
   }
-
-  return {
+    return {
     insert : insert,
     getAll : getAll
   }

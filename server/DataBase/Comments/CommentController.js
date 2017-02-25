@@ -7,7 +7,7 @@ module.exports = {
 				console.log(user)
 				var newComment = new Comment ({
 					text: req.body.text,
-		        	postedBy:req.body.postedby,
+		        	postedBy:req.body.postedBy,
 		        	tradeWorkerId : req.body.tradeWorkerId,
 				});
 			newComment.save(function(err, newComment){

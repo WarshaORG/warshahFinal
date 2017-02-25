@@ -1,16 +1,18 @@
  angular.module('myapp',[
  	'myapp.services',
 	'myapp.TradeworkerController',
+	'myapp.ratingController',
 	'myapp.user',
 	'ngRoute',
 	'ngMaterial',
-	'myapp.comments'
-
+	'myapp.comments',
+	'jkAngularRatingStars'
 
 ])
 
 .config(function($routeProvider, $httpProvider){
 	// console.log('in appppp')
+
 	$routeProvider
 	.when('/',{
 		templateUrl:'app/user/login.html',

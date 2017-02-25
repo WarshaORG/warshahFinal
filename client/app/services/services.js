@@ -54,6 +54,7 @@ angular.module('myapp.services', [])
     }).then(function (resp) {
       return resp.data
     })
+     $location.path('/home');
   }
 
   return {
@@ -66,7 +67,7 @@ angular.module('myapp.services', [])
   var insert = function (Comment) {
   var newComment = {text:Comment,
     postedBy:window.localStorage.userId,
-    tradeworkerId:window.localStorage._id}
+    tradeWorkerId:window.localStorage._id}
     return $http({
       method : 'POST',
       url : '/api/insertC',
@@ -82,6 +83,7 @@ angular.module('myapp.services', [])
       method : 'POST',
       url : '/api/allC/' + id
     }).then(function (resp) {
+      // console.log(resp.data)
       return resp.data
     })
   }
@@ -91,4 +93,40 @@ angular.module('myapp.services', [])
     getAll : getAll
   }
 })
+
+
+
+// rating factory 
+.factory('Rating',function ($http, $location,$window) {
+  var insert = function (rate) {
+    // console.log(window.localStorage.userId)
+  var newRate = {value:rate,
+    postedBy:window.localStorage.userId,
+    tradeworkerId:window.localStorage._id}
+   
+    return $http({
+      method : 'POST',
+      url : '/api/insertR',
+      data : newRate
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+
+  var getAll = function (id) {
+    return $http({
+      method : 'POST',
+      url : '/api/allR' + window.localStorage._id
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+
+  return {
+    insert : insert,
+    getAll : getAll
+  }
+})
+
+
 

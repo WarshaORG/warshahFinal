@@ -33,9 +33,10 @@
   $scope.status = '  ';
   $scope.customFullscreen = false;
 
-  $scope.showPrerenderedDialog = function(ev ,tradeworker) {
+  $scope.showPrerenderedDialogTradeworker = function(ev ,tradeworker) {
     $scope.newData = tradeworker ;
-     console.log($scope.newData)
+     $window.localStorage._id = $scope.newData._id
+     console.log($scope.newData._id , "tradeworker")
     $mdDialog.show({
       contentElement: '#myDialog',
       parent: angular.element(document.body),

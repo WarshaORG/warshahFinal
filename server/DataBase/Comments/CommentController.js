@@ -1,6 +1,7 @@
 var Comment = require ('./CommentModel');
 
 module.exports = {
+
 	insert : function (req, res) {
 		Comment.findOne({tradeWorkerId : req.body.tradeWorkerId})
 			.exec(function (error, user) {
@@ -19,6 +20,7 @@ module.exports = {
 			});
 		})
 	},
+
 	getAllCommentsByTWID : function (req, res) {
 		console.log(req.params.id);
 		Comment.find({tradeWorkerId:req.params.id}).exec(function (err, allComment) {

@@ -7,11 +7,8 @@
     Tradeworker.insert($scope.tradeworkers)
       .then(function () {
         $scope.status = 200 ;
-
        initializeTradeworker()
-          $location.path('/home');
-
-
+          $location.path('#/home');
       })
       .catch(function (error) {
         console.log(error);

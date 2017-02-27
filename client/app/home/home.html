@@ -11,9 +11,13 @@
 
     <div ng-controller="ratingController">
   <h1></h1>
-  <h2>Current LocalStorage value is = <em></em></h2>
-  <jk-rating-stars max-rating="5" rating="ctrl.rating" read-only="ctrl.readOnly" on-rating="ctrl.onRating(rating)" >
+Average Rating:
+<jk-rating-stars max-rating="5" rating="ctrl.avg" read-only="ctrl.readOnly">
+</jk-rating-stars> 
+Enter your rating below:
+  <jk-rating-stars max-rating="5" rating="ctrl.rating"  on-rating="ctrl.onRating(rating)" >
 </jk-rating-stars>
+
   <!-- <jk-rating-stars ng-click='m.update(m.value)' rating="res" ng-model="m.value" ></jk-rating-stars> -->
  <!--  <input type="text" ng-model="m.value">
   <input type="button" value="update" ng-click="m.update(m.value)"> -->
@@ -22,12 +26,12 @@
           <div>
             <h3>{{tradeworker.username}}</h3>
               <p>{{tradeworker.service}}</p>
-                <p> ID : {{tradeworker._id}} </p>
-
                 <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialogTradeworker(commentValue,tradeworker)">
                details
                  </md-button>
+
                     <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialogComment($event,tradeworker)" class="md-primary md-raised" > show or write comments </md-button >
+
           </div>
           <div style="visibility: hidden">
             <div class="md-dialog-container" id="myDialog" >
@@ -43,12 +47,14 @@
          <div style="visibility: hidden" ng-contoller = 'commentsController' >
             <div class="md-dialog-container" id="comments">
               <md-dialog layout-padding >
+
           <div ng-controller='commentsController' >  
           <h1>Your feedBack</h1>
               <p ng-repeat='comment in com'>{{comment.text}} </p>
             </div>
               <input type="text" name="comment" id='Text1' ng-model='commentValue'>
              <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)"  class="md-primary md-raised" > Write a comment </md-button >
+
               </md-dialog>
             </div>
           </div>

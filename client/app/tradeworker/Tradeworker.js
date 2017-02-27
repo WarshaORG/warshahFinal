@@ -7,11 +7,8 @@
     Tradeworker.insert($scope.tradeworkers)
       .then(function () {
         $scope.status = 200 ;
-
        initializeTradeworker()
-          $location.path('/home');
-
-
+          $location.path('#/home');
       })
       .catch(function (error) {
         console.log(error);
@@ -33,11 +30,10 @@
   $scope.status = '  ';
   $scope.customFullscreen = false;
 
-  $scope.showPrerenderedDialog = function(ev ,tradeworker) {
+  $scope.showPrerenderedDialogTradeworker = function(ev ,tradeworker) {
     $scope.newData = tradeworker ;
      $window.localStorage._id = $scope.newData._id
-
-     console.log($scope.newData)
+     console.log($scope.newData._id , "tradeworker")
     $mdDialog.show({
       contentElement: '#myDialog',
       parent: angular.element(document.body),

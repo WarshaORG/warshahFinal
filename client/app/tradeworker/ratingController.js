@@ -28,10 +28,12 @@ angular.module('myapp.ratingController',["jkAngularRatingStars"])
 
 
 
+
   var total = 0
   var initializeRating = function () {
 
      
+
     Rating.getAll(window.localStorage._id)
       .then(function (data) {
       	total = 0;
@@ -47,6 +49,7 @@ angular.module('myapp.ratingController',["jkAngularRatingStars"])
       .catch(function (error) {
         console.error(error);
       });
+
   };
 
 
@@ -62,6 +65,7 @@ angular.module('myapp.ratingController',["jkAngularRatingStars"])
 //       })
 //   };
 // })
+
 
 
 

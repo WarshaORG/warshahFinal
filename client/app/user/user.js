@@ -1,32 +1,43 @@
-//make an angulare module called(myapp)
- angular.module('myapp.user',[])
-//make a controller called (usercontr) inside myapp module
-// the controller has a dependencies ['$scope','$http','$location','$roteparams',
-//                                     function ($scope,$http,$location,$roteparams){}]	
+angular.module('myapp.user',[])
+
 .controller('userController',function ($scope,$http,$location,User ,$window){
-	$scope.user = {};
-	  $scope.signin = function () {
-	    User.signin($scope.user)
-	      .then(function (obj) {
-            $window.localStorage.userId = obj.user._id
-            console.log(obj)
-	        $window.localStorage.setItem('com.shortly', obj.token);
-	        $location.path('/home');
-	      })
-	      .catch(function (error) {
-	        console.error(error);
-	      });
-	  };
+    $scope.isLoggedIn = $window.localStorage.logged;
+    $scope.user = {};
+      $scope.signin = function () {
+        User.signin($scope.user)
+          .then(function (obj) {
+           $window.localStorage.userId = obj.user._id
+            $window.localStorage.setItem('token', obj.token);
+            $window.localStorage.logged = true;
+        $scope.isLoggedIn = $window.localStorage.logged
+                
+            $location.path('/home');
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+      };
 
-	  $scope.signup = function () {
-	    User.signup($scope.user)
-	      .then(function (token) {
-	        $window.localStorage.setItem('com.shortly', token);
-	        $location.path('/home');
-	      })
-	      .catch(function (error) {
-	        console.error(error);
-	      });
-	  };
+      $scope.signup = function () {
+        User.signup($scope.user)
+          .then(function (token) {
+            $location.path('/home');
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+      };
+
+
+      
+ $scope.logout = function () {
+    console.log('hahahahahahah')
+     User.signout();
+   $window.localStorage.logged = false;
+    $scope.isLoggedIn = $window.localStorage.logged;
+
+      };
+
+
+    
 })
-

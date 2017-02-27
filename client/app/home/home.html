@@ -26,15 +26,13 @@ Enter your rating below:
           <div>
             <h3>{{tradeworker.username}}</h3>
               <p>{{tradeworker.service}}</p>
-                <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog(commentValue,tradeworker)">
+                <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialogTradeworker(commentValue,tradeworker)">
                details
                  </md-button>
 
-
-                    <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialog($event,tradeworker._id)" class="md-primary md-raised" > show or write comments </md-button >
+                    <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialogComment($event,tradeworker)" class="md-primary md-raised" > show or write comments </md-button >
 
           </div>
-
           <div style="visibility: hidden">
             <div class="md-dialog-container" id="myDialog" >
               <md-dialog layout-padding >
@@ -46,37 +44,23 @@ Enter your rating below:
               </md-dialog>
             </div>
           </div>
-
-
-
          <div style="visibility: hidden" ng-contoller = 'commentsController' >
-            <div class="md-dialog-container" id="comments" >
+            <div class="md-dialog-container" id="comments">
               <md-dialog layout-padding >
 
-              <div> hello my name is whatevr </div>
-
-              <h3> </h3>
+          <div ng-controller='commentsController' >  
+          <h1>Your feedBack</h1>
+              <p ng-repeat='comment in com'>{{comment.text}} </p>
+            </div>
               <input type="text" name="comment" id='Text1' ng-model='commentValue'>
-
-
-
-             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)" class="md-primary md-raised" > write a comment </md-button >
-
-
-            
+             <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)"  class="md-primary md-raised" > Write a comment </md-button >
 
               </md-dialog>
             </div>
           </div>
-      </div>
-
-
+      <div>
   </div>
 </div>
-
-
-   
-
 
 
 

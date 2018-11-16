@@ -1,0 +1,106 @@
+<html ng-app="myapp" lang="en">
+<head>
+  <title>Warshah</title>
+
+   <script data-require="angular.js@*" data-semver="1.5.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+   
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="jk-rating-stars.min.css" />
+    <script src="jk-rating-stars.min.js"></script>
+    
+    <!-- <script src="angular.js"></script>
+    <script src="jk-rating-stars.js"></script> -->
+
+    <!-- Libraries and Css -->
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="https://gitcdn.link/repo/angular/bower-material/master/angular-material.css"> -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+
+<body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- logo -->
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <img alt="Brand" src="image/logo.gif" class="img-responsive">
+    </div>
+    <div class="col-sm-6 col-md-5">
+      <img alt="Brand" src="image/man.jpg" class="img-man">
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <a href="tradeworker.html">
+      <img alt="tradeworker" src="image/tradeworker.png" class="img-left">
+      </a>
+
+    </div>
+  </div>
+<!-- menu bar -->
+<nav class="navbar navbar-default">
+ <div class="navbar-header">
+      
+      <a class="navbar-brand" href="#/home">Home Page</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       <!--  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+        <li class="dropdown">
+          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a>Smith</a></li>
+            <li><a>Plumber</a></li>
+            <li><a>Painter</a></li>
+            <li><a>Carpenter</a></li>
+            <li><a>Electricity technician</a></li>
+           
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li> <a href='#/tradeworker'> tradeworker</li> </a>
+         <li> <a href='#/client/app/user/login.html'>Signin</li> </a>
+          <li> <a href='#/client/app/user/signup.html'>sign up</li> </a>
+
+      </ul>
+</nav>
+<div ng-view></div>
+<!-- footer -->
+<div class="footer">
+ <a href="https://www.facebook.com/profile.php?id=100015323349284" target="_blank">
+ <img src="image/facebook.png" width="40px" height="40px" /></a>
+ <a href="index.html"><img src="image/whatsapp.png" width="40px" height="40px" /></a>
+  <h5 id="footer">copy  right &copy Warsha Team</h5>
+</div>
+
+
+<!-- script link -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="app/comments/comments.js"></script>
+
+  <script src="app/services/services.js"></script>
+    <script src="app/tradeworker/ratingController.js"></script>
+
+  <script src="app/tradeworker/Tradeworker.js"></script>
+  <script src="app/user/user.js"></script>
+  <script src="app/app.js"></script>
+
+ </body>
+ </html>

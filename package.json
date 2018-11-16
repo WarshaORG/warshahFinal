@@ -1,22 +1,22 @@
 {
-  "name": "myapp",
-  "version": "1.0.0",
-  "description": "my first app",
-  "main": "server.js",
+  "name": "warsha",
+  "version": "19.2.17",
+  "description": "Build out the front end of a MEAN stack app",
+  "engines": {
+    "node": ">= 7.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js"
   },
-  "keywords": [
-    "my",
-    "gallery"
-  ],
-  "author": "moamar swedan",
-  "license": "ISC",
   "dependencies": {
-    "angular-route": "^1.6.1",
-    "express": "^4.4.5"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "jwt-simple": "^0.5.0",
+    "mongodb": "^2.2.24",
+    "mongoose": "^4.1.0",
+    "morgan": "^1.1.1",
+    "q": "^1.4.1",
+    "request": "^2.36.0"
   }
 }
